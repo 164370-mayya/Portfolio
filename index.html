@@ -1,290 +1,381 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" class="scroll-smooth">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Student Portfolio</title>
 
-<meta charset="UTF-8">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FontAwesome สำหรับไอคอนทางการแพทย์และโซเชียล -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<title>Portfolio</title>
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+        }
 
-<link rel="stylesheet" href="style.css">
+        /* 💓 แอนิเมชันชีพจรหัวใจ (ECG Pulse Effect) สำหรับจุดนำสายตา */
+        @keyframes pulse-med {
+            0%, 100% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.5); opacity: 0.8; }
+        }
+        .animate-pulse-med {
+            animation: pulse-med 2s infinite ease-in-out;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+        .no-scroll {
+            overflow: hidden;
+        }
+    </style>
 </head>
 
-<body>
-
-<header>
-
-<div class="logo">
-
-PORTFOLIO
-
-</div>
-
-<nav>
-
-<a href="#home">Home</a>
-
-<a href="#about">About</a>
-
-<a href="#education">Education</a>
-
-<a href="#portfolio">Portfolio</a>
-
-<a href="#contact">Contact</a>
-
-</nav>
-
-</header>
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-<div class="left">
-
-<h1>
-
-________________________
-
-</h1>
-
-<h2>
-
-Portfolio เพื่อการศึกษาต่อ
-
-</h2>
-
-<p>
-
-เว้นข้อความไว้ให้กรอกเอง
-
-</p>
-
-<div class="button">
-
-<a href="#portfolio" class="btn">
-
-Portfolio
-
-</a>
-
-<a href="#contact" class="btn2">
-
-Contact
-
-</a>
-
-</div>
-
-</div>
-
-<div class="right">
-
-<img src="images/profile.jpg">
-
-</div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<h2>
-
-About Me
-
-</h2>
-
-<div class="card-box">
-
-<div class="info">
-
-<h3>ข้อมูลส่วนตัว</h3>
-
-<p>ชื่อ : __________________</p>
-
-<p>โรงเรียน : __________________</p>
-
-<p>แผนการเรียน : __________________</p>
-
-</div>
-
-<div class="info">
-
-<h3>เป้าหมาย</h3>
-
-<p>
-
-___________________________
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- EDUCATION -->
-
-<section id="education">
-
-<h2>
-
-Education
-
-</h2>
-
-<div class="timeline">
-
-<div class="time">
-
-<h3>ประถมศึกษา</h3>
-
-<p>__________________</p>
-
-</div>
-
-<div class="time">
-
-<h3>มัธยมต้น</h3>
-
-<p>__________________</p>
-
-</div>
-
-<div class="time">
-
-<h3>มัธยมปลาย</h3>
-
-<p>__________________</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- PORTFOLIO -->
-
-<section id="portfolio">
-
-<h2>
-
-Portfolio Gallery
-
-</h2>
-
-<div class="gallery">
-
-<div class="item">
-
-<img src="images/page1.jpg">
-
-</div>
-
-<div class="item">
-
-<img src="images/page2.jpg">
-
-</div>
-
-<div class="item">
-
-<img src="images/page3.jpg">
-
-</div>
-
-<div class="item">
-
-<img src="images/page4.jpg">
-
-</div>
-
-<div class="item">
-
-<img src="images/page5.jpg">
-
-</div>
-
-<div class="item">
-
-<img src="images/page6.jpg">
-
-</div>
-
-<div class="item">
-
-<img src="images/page7.jpg">
-
-</div>
-
-<div class="item">
-
-<img src="images/page8.jpg">
-
-</div>
-
-<div class="item">
-
-<img src="images/page9.jpg">
-
-</div>
-
-<div class="item">
-
-<img src="images/page10.jpg">
-
-</div>
-
-<div class="item">
-
-<img src="images/page11.jpg">
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<h2>
-
-Contact
-
-</h2>
-
-<div class="contact-box">
-
-<p>Email : __________________</p>
-
-<p>Facebook : __________________</p>
-
-<p>Instagram : __________________</p>
-
-<p>GitHub : __________________</p>
-
-</div>
-
-</section>
-
-<footer>
-
-© 2026 Portfolio
-
-</footer>
-
-<script src="script.js"></script>
+<!-- 🎨 THEME: Clinical Light Mode (พื้นหลังขาว-ฟ้านวล สะอาด ปลอดภัย และน่าเชื่อถือ) -->
+<body class="bg-[#F4F8F9] text-[#0F2C59] min-h-screen antialiased selection:bg-[#00A896] selection:text-white overflow-x-hidden no-scroll">
+
+    <!-- ================= ⏳ CLINICAL SYSTEM LOADER ================= -->
+    <div id="loader" class="fixed inset-0 bg-white z-[200] flex flex-col items-center justify-center p-6 transition-all duration-500">
+        <div class="flex flex-col items-center gap-4">
+            <div class="text-[#00A896] text-5xl animate-pulse">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <div class="text-sm font-semibold tracking-widest text-[#0F2C59]/60 uppercase animate-bounce">
+                Initializing Medical Portfolio...
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================= PREMIUM FIXED HEADER ================= -->
+    <div class="fixed top-0 left-0 w-full px-4 pt-4 z-50 pointer-events-none">
+        <header class="max-w-6xl mx-auto bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-[0_4px_30px_rgba(0,0,0,0.03)] rounded-2xl px-6 py-3.5 flex justify-between items-center pointer-events-auto">
+            <div class="text-base md:text-lg font-bold tracking-tight text-[#0F2C59] flex items-center gap-2">
+                <span class="bg-[#00A896]/10 text-[#00A896] w-8 h-8 rounded-lg flex items-center justify-center text-sm"><i class="fa-solid fa-file-medical"></i></span>
+                MED PORTFOLIO
+            </div>
+            <nav class="hidden md:flex space-x-6 font-medium text-xs uppercase tracking-wider text-[#0F2C59]/80">
+                <a href="#home" class="hover:text-[#00A896] transition-colors">Home</a>
+                <a href="#about" class="hover:text-[#00A896] transition-colors">About</a>
+                <a href="#education" class="hover:text-[#00A896] transition-colors">Education</a>
+                <a href="#portfolio" class="hover:text-[#00A896] transition-colors">Portfolio</a>
+                <a href="#contact" class="hover:text-[#00A896] transition-colors">Contact</a>
+            </nav>
+            <div class="md:hidden text-[#0F2C59] text-lg">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </div>
+        </header>
+    </div>
+
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="min-h-screen flex items-center justify-center pt-28 pb-16 px-4 relative" id="home">
+        <!-- เส้นกราฟหัวใจจางๆ ด้านหลัง -->
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center z-0">
+            <i class="fa-solid fa-chart-line text-[40rem]"></i>
+        </div>
+
+        <div class="max-w-6xl w-full grid md:grid-cols-12 gap-12 items-center relative z-10">
+            
+            <div class="md:col-span-7 space-y-6 text-center md:text-left order-2 md:order-1">
+                <div class="inline-flex items-center gap-2 bg-[#00A896]/10 text-[#00A896] font-bold text-xs px-3 py-1 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-[#00A896] relative flex"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00A896] opacity-75"></span></span>
+                    MEDICAL ADMISSION 2026
+                </div>
+                
+                <!-- ส่วนหัวข้อหลักที่แก้ไขข้อความเองได้ -->
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-[#0F2C59] leading-tight">
+                    [ กรอกชื่อ-นามสกุลของคุณตรงนี้ ]
+                </h1>
+                
+                <h2 class="text-xl md:text-2xl font-semibold text-[#028090]">
+                    Portfolio เพื่อการศึกษาต่อคณะแพทยศาสตร์
+                </h2>
+                
+                <!-- ส่วนคำโปรย/เป้าหมายเบื้องต้น -->
+                <p class="text-sm md:text-base text-slate-600 max-w-xl leading-relaxed bg-white/60 p-5 rounded-2xl border border-slate-200/50 backdrop-blur-sm shadow-sm">
+                    <i class="fa-solid fa-quote-left text-[#00A896]/30 text-2xl block mb-1"></i>
+                    (เว้นข้อความไว้ให้กรอกเอง: คุณสามารถพิมพ์แนะนำตัวสั้นๆ ความตั้งใจในการอยากเป็นแพทย์ หรืออุดมคติของการเรียนรู้ด้านวิทยาศาสตร์การแพทย์ของคุณลงในกล่องข้อความนี้เพื่อสร้างความประทับใจแรกได้ทันที)
+                </p>
+                
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
+                    <a href="#portfolio" class="bg-[#0F2C59] text-white font-medium text-sm px-6 py-3 rounded-xl shadow-lg hover:bg-[#028090] transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-briefcase-medical mr-2 text-xs"></i> ดูแฟ้มสะสมผลงาน
+                    </a>
+                    <a href="#contact" class="bg-white text-[#0F2C59] font-medium text-sm px-6 py-3 rounded-xl border border-slate-200 shadow-sm hover:bg-slate-50 transition-all transform hover:-translate-y-0.5">
+                        ช่องทางการติดต่อ
+                    </a>
+                </div>
+            </div>
+
+            <!-- กรอบรูปโปรไฟล์สไตล์ใบรับรองการแพทย์ล้ำๆ -->
+            <div class="md:col-span-5 flex justify-center order-1 md:order-2">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-[#00A896]/20 to-[#028090]/10 rounded-[2.5rem] blur-xl opacity-60"></div>
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 bg-white border border-slate-200 p-4 rounded-[2.5rem] shadow-xl">
+                        <img src="images/profile.jpg" alt="Medical Profile" class="w-full h-full object-cover rounded-[1.8rem] bg-slate-100" onerror="this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=500'">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ================= ABOUT ME SECTION ================= -->
+    <section class="py-24 px-4 bg-white border-y border-slate-100" id="about">
+        <div class="max-w-5xl mx-auto">
+            <div class="mb-12 text-center">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-[#0F2C59] tracking-tight flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-user-doctor text-[#00A896]"></i> ข้อมูลประวัติส่วนตัว
+                </h2>
+                <div class="h-1 w-12 bg-[#00A896] mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- กล่องข้อมูลส่วนตัว -->
+                <div class="bg-[#F4F8F9] border border-slate-200/60 p-6 rounded-2xl shadow-sm space-y-4">
+                    <h3 class="text-lg font-bold text-[#0F2C59] flex items-center gap-2 border-b border-slate-200 pb-2">
+                        <i class="fa-solid fa-id-card text-[#028090]"></i> ข้อมูลทั่วไป
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <p class="flex items-center gap-2 font-medium text-slate-500">ชื่อ : <span class="text-[#0F2C59] font-semibold">[ __________________ ]</span></p>
+                        <p class="flex items-center gap-2 font-medium text-slate-500">โรงเรียน : <span class="text-[#0F2C59] font-semibold">[ __________________ ]</span></p>
+                        <p class="flex items-center gap-2 font-medium text-slate-500">แผนการเรียน : <span class="text-[#0F2C59] font-semibold">[ __________________ ]</span></p>
+                    </div>
+                </div>
+
+                <!-- กล่องเป้าหมาย / อุดมการณ์ -->
+                <div class="bg-[#F4F8F9] border border-slate-200/60 p-6 rounded-2xl shadow-sm flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-[#0F2C59] flex items-center gap-2 border-b border-slate-200 pb-2">
+                            <i class="fa-solid fa-stethoscope text-[#028090]"></i> เป้าหมายและปณิธาน
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed mt-4">
+                            [ __________________________________________________________________________________________
+                            __________________________________________________________________________________________ ]
+                        </p>
+                    </div>
+                    <span class="text-[10px] font-bold text-[#00A896]/70 tracking-widest uppercase block mt-4"><i class="fa-solid fa-star-of-life"></i> Medical Aspirations</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= EDUCATION SECTION (ไทม์ไลน์คลีนๆ สไตล์บันทึกประวัติการศึกษา) ================= -->
+    <section class="py-24 px-4 max-w-4xl mx-auto" id="education">
+        <div class="mb-16 text-center">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-[#0F2C59] tracking-tight flex items-center justify-center gap-2">
+                <i class="fa-solid fa-graduation-cap text-[#00A896]"></i> ประวัติการศึกษา
+            </h2>
+            <div class="h-1 w-12 bg-[#00A896] mx-auto mt-3 rounded-full"></div>
+        </div>
+
+        <div class="relative border-l-2 border-slate-200 ml-4 md:ml-32 space-y-12">
+            
+            <!-- ประถม -->
+            <div class="relative pl-8 group">
+                <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#00A896] group-hover:bg-[#00A896] transition-colors flex items-center justify-center">
+                    <div class="w-1.5 h-1.5 rounded-full bg-[#00A896] group-hover:bg-white"></div>
+                </div>
+                <div class="absolute left-[-110px] top-0 hidden md:block w-24 text-right">
+                    <span class="font-bold text-xs bg-slate-200/70 text-slate-600 px-2 py-1 rounded-md uppercase">Primary</span>
+                </div>
+                <div class="bg-white border border-slate-200/70 p-5 rounded-xl shadow-sm transition-all group-hover:shadow-md">
+                    <h3 class="font-bold text-base text-[#0F2C59]">ระดับประถมศึกษา</h3>
+                    <p class="text-sm text-slate-500 mt-1">[ __________________ ]</p>
+                </div>
+            </div>
+
+            <!-- มัธยมต้น -->
+            <div class="relative pl-8 group">
+                <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#028090] group-hover:bg-[#028090] transition-colors flex items-center justify-center">
+                    <div class="w-1.5 h-1.5 rounded-full bg-[#028090] group-hover:bg-white"></div>
+                </div>
+                <div class="absolute left-[-110px] top-0 hidden md:block w-24 text-right">
+                    <span class="font-bold text-xs bg-slate-200/70 text-slate-600 px-2 py-1 rounded-md uppercase">Junior High</span>
+                </div>
+                <div class="bg-white border border-slate-200/70 p-5 rounded-xl shadow-sm transition-all group-hover:shadow-md">
+                    <h3 class="font-bold text-base text-[#0F2C59]">ระดับมัธยมศึกษาตอนต้น</h3>
+                    <p class="text-sm text-slate-500 mt-1">[ __________________ ]</p>
+                </div>
+            </div>
+
+            <!-- มัธยมปลาย -->
+            <div class="relative pl-8 group">
+                <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#0F2C59] group-hover:bg-[#0F2C59] transition-colors flex items-center justify-center">
+                    <div class="w-1.5 h-1.5 rounded-full bg-[#0F2C59] group-hover:bg-white"></div>
+                </div>
+                <div class="absolute left-[-110px] top-0 hidden md:block w-24 text-right">
+                    <span class="font-bold text-xs bg-[#0F2C59]/10 text-[#0F2C59] px-2 py-1 rounded-md uppercase">Senior High</span>
+                </div>
+                <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-md border-l-4 border-l-[#00A896]">
+                    <h3 class="font-bold text-base text-[#0F2C59]">ระดับมัธยมศึกษาตอนปลาย</h3>
+                    <p class="text-sm text-slate-500 mt-1">[ __________________ ]</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ================= PORTFOLIO GALLERY SECTION (11 รูปผลงานเรียงเป็นตารางพรีเมียม) ================= -->
+    <section class="py-24 px-4 bg-white border-t border-slate-100" id="portfolio">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-12 text-center">
+                <h2 class="text-2xl md:text-3xl font-extrabold text-[#0F2C59] tracking-tight flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-microscope text-[#00A896]"></i> Portfolio Gallery
+                </h2>
+                <p class="text-xs font-medium text-slate-400 mt-2 uppercase tracking-wider">คลิกที่รูปภาพเพื่อเปิดดูขนาดใหญ่แบบสแกนวิเคราะห์ผลงาน</p>
+                <div class="h-1 w-12 bg-[#00A896] mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <!-- กริดแสดงผลงานแบบโมเดิร์นคลีน ทั้งหมด 11 ชิ้นงาน -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <script>
+                    // วนลูปสร้างการ์ดรูปภาพโปรเจกต์ 1-11 อ้างอิงตามโครงสร้างเดิมของคุณ
+                    for (let i = 1; i <= 11; i++) {
+                        document.write(`
+                            <div class="group bg-white border border-slate-200 p-2 rounded-xl shadow-sm hover:shadow-md hover:border-[#00A896]/40 transition-all duration-200 cursor-pointer" onclick="openImage('images/page${i}.jpg')">
+                                <div class="aspect-[3/4] bg-slate-50 rounded-lg overflow-hidden relative border border-slate-100">
+                                    <img src="images/page${i}.jpg" alt="Portfolio Page ${i}" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=300'">
+                                    <div class="absolute inset-0 bg-[#0F2C59]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+                                        <span class="text-white text-xs font-semibold bg-[#00A896] px-2.5 py-1 rounded shadow-md"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> ขยายดู</span>
+                                    </div>
+                                </div>
+                                <div class="mt-2 text-center">
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Page ${i.toString().padStart(2, '0')}</span>
+                                </div>
+                            </div>
+                        `);
+                    }
+                </script>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= CONTACT SECTION ================= -->
+    <section class="py-24 px-4 max-w-4xl mx-auto" id="contact">
+        <div class="mb-12 text-center">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-[#0F2C59] tracking-tight flex items-center justify-center gap-2">
+                <i class="fa-solid fa-address-book text-[#00A896]"></i> ช่องทางการติดต่อ
+            </h2>
+            <div class="h-1 w-12 bg-[#00A896] mx-auto mt-3 rounded-full"></div>
+        </div>
+
+        <div class="bg-white border border-slate-200 p-6 md:p-8 rounded-2xl shadow-xl grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Email -->
+            <div class="flex items-center gap-4 p-4 bg-[#F4F8F9] rounded-xl border border-slate-100">
+                <div class="w-10 h-10 bg-[#00A896]/10 text-[#00A896] rounded-xl flex items-center justify-center text-lg"><i class="fa-solid fa-envelope"></i></div>
+                <div class="overflow-hidden">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Email Address</span>
+                    <span class="text-sm font-semibold text-[#0F2C59] block truncate">[ __________________ ]</span>
+                </div>
+            </div>
+
+            <!-- Facebook -->
+            <div class="flex items-center gap-4 p-4 bg-[#F4F8F9] rounded-xl border border-slate-100">
+                <div class="w-10 h-10 bg-blue-600/10 text-blue-600 rounded-xl flex items-center justify-center text-lg"><i class="fa-brands fa-facebook-f"></i></div>
+                <div class="overflow-hidden">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Facebook</span>
+                    <span class="text-sm font-semibold text-[#0F2C59] block truncate">[ __________________ ]</span>
+                </div>
+            </div>
+
+            <!-- Instagram -->
+            <div class="flex items-center gap-4 p-4 bg-[#F4F8F9] rounded-xl border border-slate-100">
+                <div class="w-10 h-10 bg-pink-600/10 text-pink-600 rounded-xl flex items-center justify-center text-lg"><i class="fa-brands fa-instagram"></i></div>
+                <div class="overflow-hidden">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Instagram</span>
+                    <span class="text-sm font-semibold text-[#0F2C59] block truncate">[ __________________ ]</span>
+                </div>
+            </div>
+
+            <!-- GitHub -->
+            <div class="flex items-center gap-4 p-4 bg-[#F4F8F9] rounded-xl border border-slate-100">
+                <div class="w-10 h-10 bg-slate-900/10 text-slate-900 rounded-xl flex items-center justify-center text-lg"><i class="fa-brands fa-github"></i></div>
+                <div class="overflow-hidden">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">GitHub</span>
+                    <span class="text-sm font-semibold text-[#0F2C59] block truncate">[ __________________ ]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= MEDICAL IMAGE LIGHTBOX MODAL ================= -->
+    <div id="popup" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm hidden z-[100] flex-col items-center justify-center p-4 transition-all duration-200 opacity-0">
+        <button onclick="closeImage()" class="absolute top-6 right-6 text-[#0F2C59] bg-white border border-slate-200 text-xl w-10 h-10 flex items-center justify-center rounded-xl shadow-lg hover:text-red-500 transition-all">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-3xl max-h-[85vh] overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl">
+            <img id="popup-img" class="w-full h-full object-contain max-h-[82vh] rounded-xl" src="" alt="Portfolio Expanded Document">
+        </div>
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-white text-slate-400 py-8 text-center text-xs font-medium border-t border-slate-100">
+        © 2026 Portfolio — Medical Education Admission. All Rights Reserved.
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT CONTROLLERS ================= -->
+    <script>
+        // 1. ควบคุมเอฟเฟกต์การปิดหน้าดาวน์โหลด (Loader) 
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('opacity-0');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    document.body.classList.remove('no-scroll');
+                }, 500);
+            }, 600); 
+        });
+
+        // 2. ระบบ Popup ขยายภาพแฟ้มสะสมผลงานใหญ่เต็มจอ
+        function openImage(src) {
+            const popup = document.getElementById('popup');
+            const popupImg = document.getElementById('popup-img');
+            
+            popupImg.src = src;
+            popup.classList.remove('hidden');
+            popup.classList.add('flex');
+            
+            setTimeout(() => {
+                popup.classList.remove('opacity-0');
+            }, 10);
+
+            document.body.classList.add('no-scroll');
+        }
+
+        function closeImage() {
+            const popup = document.getElementById('popup');
+            popup.classList.add('opacity-0');
+            
+            setTimeout(() => {
+                popup.classList.remove('flex');
+                popup.classList.add('hidden');
+            }, 200);
+
+            document.body.classList.remove('no-scroll');
+        }
+
+        document.getElementById('popup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeImage();
+            }
+        });
+    </script>
 
 </body>
-
 </html>
