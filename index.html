@@ -4,31 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Student Portfolio</title>
+    <title>Futuristic Bio-Medical Portfolio</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Kanit -->
+    <!-- Google Fonts: Kanit & Syncopate สำหรับฟีลแล็บวิทยาศาสตร์ล้ำยุค -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=Syncopate:wght@700&display=swap" rel="stylesheet">
 
-    <!-- FontAwesome สำหรับไอคอนทางการแพทย์และโซเชียล -->
+    <!-- FontAwesome สำหรับคลังไอคอนทางการแพทย์ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         body {
             font-family: 'Kanit', sans-serif;
         }
-
-        /* 💓 แอนิเมชันชีพจรหัวใจ (ECG Pulse Effect) สำหรับจุดนำสายตา */
-        @keyframes pulse-med {
-            0%, 100% { transform: scale(1); opacity: 0.2; }
-            50% { transform: scale(1.5); opacity: 0.8; }
+        .font-tech {
+            font-family: 'Syncopate', sans-serif;
         }
-        .animate-pulse-med {
-            animation: pulse-med 2s infinite ease-in-out;
+
+        /* 🧬 แอนิเมชันโมเลกุลลอยในพื้นหลัง (Floating Bio-Orbs) */
+        @keyframes float-orb-1 {
+            0%, 100% { transform: translateY(0px) scale(1) rotate(0deg); }
+            50% { transform: translateY(-40px) scale(1.1) rotate(180deg); }
+        }
+        @keyframes float-orb-2 {
+            0%, 100% { transform: translateY(0px) scale(1.1) rotate(0deg); }
+            50% { transform: translateY(40px) scale(0.9) rotate(-180deg); }
+        }
+        .animate-orb-1 { animation: float-orb-1 15s infinite ease-in-out; }
+        .animate-orb-2 { animation: float-orb-2 18s infinite ease-in-out; }
+
+        /* ⚡ แถบไฟสแกนเลเซอร์วิ่งผ่านการ์ด (Scanning Overlay Effect) */
+        @keyframes laser-scan {
+            0% { top: -100%; }
+            100% { top: 200%; }
+        }
+        .group:hover .laser-line {
+            animation: laser-scan 1.5s infinite linear;
         }
 
         .no-scroll {
@@ -37,89 +52,94 @@
     </style>
 </head>
 
-<!-- 🎨 THEME: Clinical Light Mode (พื้นหลังขาว-ฟ้านวล สะอาด ปลอดภัย และน่าเชื่อถือ) -->
-<body class="bg-[#F4F8F9] text-[#0F2C59] min-h-screen antialiased selection:bg-[#00A896] selection:text-white overflow-x-hidden no-scroll">
+<!-- 🎨 THEME: Soft Ice Blue Glassmorphism (พื้นหลังฟ้าอ่อนละมุนตา ผสานโครงกระจกฝ้าสะท้อนแสง) -->
+<body class="bg-gradient-to-tr from-[#D6E6F2] via-[#EBF4FA] to-[#F1F7FC] text-[#1E3E62] min-h-screen antialiased selection:bg-[#00B4D8] selection:text-white overflow-x-hidden no-scroll relative">
 
-    <!-- ================= ⏳ CLINICAL SYSTEM LOADER ================= -->
-    <div id="loader" class="fixed inset-0 bg-white z-[200] flex flex-col items-center justify-center p-6 transition-all duration-500">
-        <div class="flex flex-col items-center gap-4">
-            <div class="text-[#00A896] text-5xl animate-pulse">
-                <i class="fa-solid fa-heart-pulse"></i>
+    <!-- 🔮 แผ่นโมเลกุลชีวภาพเรืองแสงขนาดใหญ่ ลอยนุ่มนวลอยู่เบื้องหลังเว็บ -->
+    <div class="fixed top-[15%] left-[5%] w-96 h-96 bg-[#90E0EF]/30 rounded-full blur-[90px] pointer-events-none z-0 animate-orb-1"></div>
+    <div class="fixed bottom-[20%] right-[5%] w-[30rem] h-[30rem] bg-[#CAF0F8]/40 rounded-full blur-[100px] pointer-events-none z-0 animate-orb-2"></div>
+
+
+    <!-- ================= ⏳ BIO-TECH LAB SCANNER LOADER ================= -->
+    <div id="loader" class="fixed inset-0 bg-[#EBF4FA] z-[200] flex flex-col items-center justify-center p-6 transition-all duration-700">
+        <div class="relative bg-white/40 backdrop-blur-xl border border-white/60 p-8 rounded-3xl shadow-2xl flex flex-col items-center max-w-sm w-full text-center">
+            <!-- วงแหวนเรดาร์หมุนเวียนคัดกรองข้อมูล -->
+            <div class="relative w-24 h-24 mb-6 flex items-center justify-center">
+                <div class="absolute inset-0 border-4 border-[#00B4D8]/20 rounded-full"></div>
+                <div class="absolute inset-0 border-4 border-t-[#00B4D8] border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+                <i class="fa-solid fa-dna text-4xl text-[#00B4D8] animate-pulse"></i>
             </div>
-            <div class="text-sm font-semibold tracking-widest text-[#0F2C59]/60 uppercase animate-bounce">
-                Initializing Medical Portfolio...
-            </div>
+            <div class="font-tech text-[10px] tracking-widest text-[#1E3E62]/70 mb-2">SYSTEM DIAGNOSTIC</div>
+            <p class="text-sm font-bold text-[#1E3E62] tracking-wide animate-pulse">กำลังตรวจสอบสิทธิ์เข้าถึงพอร์ตโฟลิโอ...</p>
         </div>
     </div>
 
 
-    <!-- ================= PREMIUM FIXED HEADER ================= -->
+    <!-- ================= FROSTED GLASS NAVIGATION HEADER ================= -->
     <div class="fixed top-0 left-0 w-full px-4 pt-4 z-50 pointer-events-none">
-        <header class="max-w-6xl mx-auto bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-[0_4px_30px_rgba(0,0,0,0.03)] rounded-2xl px-6 py-3.5 flex justify-between items-center pointer-events-auto">
-            <div class="text-base md:text-lg font-bold tracking-tight text-[#0F2C59] flex items-center gap-2">
-                <span class="bg-[#00A896]/10 text-[#00A896] w-8 h-8 rounded-lg flex items-center justify-center text-sm"><i class="fa-solid fa-file-medical"></i></span>
-                MED PORTFOLIO
+        <header class="max-w-6xl mx-auto bg-white/30 backdrop-blur-md border border-white/50 shadow-[0_8px_32px_0_rgba(144,224,239,0.15)] rounded-2xl px-6 py-3 flex justify-between items-center pointer-events-auto transition-all">
+            <div class="text-sm md:text-base font-extrabold tracking-wider text-[#1E3E62] flex items-center gap-2">
+                <i class="fa-solid fa-shield-heart text-[#00B4D8] text-lg animate-pulse"></i>
+                <span class="font-tech text-xs tracking-tighter">MED.HUD</span>
             </div>
-            <nav class="hidden md:flex space-x-6 font-medium text-xs uppercase tracking-wider text-[#0F2C59]/80">
-                <a href="#home" class="hover:text-[#00A896] transition-colors">Home</a>
-                <a href="#about" class="hover:text-[#00A896] transition-colors">About</a>
-                <a href="#education" class="hover:text-[#00A896] transition-colors">Education</a>
-                <a href="#portfolio" class="hover:text-[#00A896] transition-colors">Portfolio</a>
-                <a href="#contact" class="hover:text-[#00A896] transition-colors">Contact</a>
+            <nav class="hidden md:flex space-x-6 font-bold text-xs uppercase tracking-widest text-[#1E3E62]/80">
+                <a href="#home" class="hover:text-[#00B4D8] transition-colors relative py-1 group">Home<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00B4D8] transition-all group-hover:w-full"></span></a>
+                <a href="#about" class="hover:text-[#00B4D8] transition-colors relative py-1 group">About<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00B4D8] transition-all group-hover:w-full"></span></a>
+                <a href="#education" class="hover:text-[#00B4D8] transition-colors relative py-1 group">Education<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00B4D8] transition-all group-hover:w-full"></span></a>
+                <a href="#portfolio" class="hover:text-[#00B4D8] transition-colors relative py-1 group">Portfolio<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00B4D8] transition-all group-hover:w-full"></span></a>
+                <a href="#contact" class="hover:text-[#00B4D8] transition-colors relative py-1 group">Contact<span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00B4D8] transition-all group-hover:w-full"></span></a>
             </nav>
-            <div class="md:hidden text-[#0F2C59] text-lg">
-                <i class="fa-solid fa-bars-staggered"></i>
+            <div class="bg-[#00B4D8]/10 text-[#00B4D8] border border-[#00B4D8]/30 px-3 py-1 rounded-full font-bold text-[10px] tracking-wider uppercase">
+                <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1 animate-ping"></span> SECURE ACCESS
             </div>
         </header>
     </div>
 
 
-    <!-- ================= HERO SECTION ================= -->
-    <section class="min-h-screen flex items-center justify-center pt-28 pb-16 px-4 relative" id="home">
-        <!-- เส้นกราฟหัวใจจางๆ ด้านหลัง -->
-        <div class="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center z-0">
-            <i class="fa-solid fa-chart-line text-[40rem]"></i>
-        </div>
-
-        <div class="max-w-6xl w-full grid md:grid-cols-12 gap-12 items-center relative z-10">
+    <!-- ================= HERO SECTION (หน้าแรก - ศูนย์สั่งการกระจกโฮโลแกรม) ================= -->
+    <section class="min-h-screen flex items-center justify-center pt-28 pb-16 px-4 relative z-10" id="home">
+        <div class="max-w-6xl w-full grid md:grid-cols-12 gap-12 items-center">
             
             <div class="md:col-span-7 space-y-6 text-center md:text-left order-2 md:order-1">
-                <div class="inline-flex items-center gap-2 bg-[#00A896]/10 text-[#00A896] font-bold text-xs px-3 py-1 rounded-full">
-                    <span class="w-2 h-2 rounded-full bg-[#00A896] relative flex"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00A896] opacity-75"></span></span>
-                    MEDICAL ADMISSION 2026
+                <div class="inline-flex items-center gap-2 bg-[#00B4D8]/10 text-[#00B4D8] border border-[#00B4D8]/20 font-bold text-xs px-4 py-1.5 rounded-full shadow-inner">
+                    <i class="fa-solid fa-atom animate-spin-slow"></i> BIOMEDICAL CANDIDATE 2026
                 </div>
                 
-                <!-- ส่วนหัวข้อหลักที่แก้ไขข้อความเองได้ -->
-                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-[#0F2C59] leading-tight">
-                    [ กรอกชื่อ-นามสกุลของคุณตรงนี้ ]
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-[#1E3E62] leading-tight">
+                    ________________________
                 </h1>
                 
-                <h2 class="text-xl md:text-2xl font-semibold text-[#028090]">
-                    Portfolio เพื่อการศึกษาต่อคณะแพทยศาสตร์
+                <h2 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0077B6] to-[#00B4D8] tracking-wide">
+                    Portfolio เพื่อการศึกษาต่อ
                 </h2>
                 
-                <!-- ส่วนคำโปรย/เป้าหมายเบื้องต้น -->
-                <p class="text-sm md:text-base text-slate-600 max-w-xl leading-relaxed bg-white/60 p-5 rounded-2xl border border-slate-200/50 backdrop-blur-sm shadow-sm">
-                    <i class="fa-solid fa-quote-left text-[#00A896]/30 text-2xl block mb-1"></i>
-                    (เว้นข้อความไว้ให้กรอกเอง: คุณสามารถพิมพ์แนะนำตัวสั้นๆ ความตั้งใจในการอยากเป็นแพทย์ หรืออุดมคติของการเรียนรู้ด้านวิทยาศาสตร์การแพทย์ของคุณลงในกล่องข้อความนี้เพื่อสร้างความประทับใจแรกได้ทันที)
-                </p>
+                <!-- กล่องกระจกฝ้าพรีเมียม (Glassmorphism Capsule) -->
+                <div class="relative bg-white/40 backdrop-blur-md p-6 rounded-2xl border border-white/60 shadow-xl overflow-hidden group">
+                    <div class="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-[#00B4D8] to-purple-400"></div>
+                    <p class="text-sm md:text-base text-slate-600 font-medium leading-relaxed">
+                        เว้นข้อความไว้ให้กรอกเอง
+                    </p>
+                </div>
                 
+                <!-- ชุดปุ่มกดเอฟเฟกต์สะท้อนเงาเรืองแสง -->
                 <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
-                    <a href="#portfolio" class="bg-[#0F2C59] text-white font-medium text-sm px-6 py-3 rounded-xl shadow-lg hover:bg-[#028090] transition-all transform hover:-translate-y-0.5">
-                        <i class="fa-solid fa-briefcase-medical mr-2 text-xs"></i> ดูแฟ้มสะสมผลงาน
+                    <a href="#portfolio" class="bg-gradient-to-r from-[#0077B6] to-[#00B4D8] text-white font-bold text-xs tracking-widest uppercase px-6 py-4 rounded-xl shadow-lg shadow-[#00B4D8]/30 hover:shadow-[#00B4D8]/50 hover:translate-x-1 transition-all">
+                        <i class="fa-solid fa-folder-open mr-1.5"></i> Portfolio
                     </a>
-                    <a href="#contact" class="bg-white text-[#0F2C59] font-medium text-sm px-6 py-3 rounded-xl border border-slate-200 shadow-sm hover:bg-slate-50 transition-all transform hover:-translate-y-0.5">
-                        ช่องทางการติดต่อ
+                    <a href="#contact" class="bg-white/60 backdrop-blur-sm text-[#1E3E62] font-bold text-xs tracking-widest uppercase px-6 py-4 rounded-xl border border-white/80 shadow-md hover:bg-white transition-all">
+                        Contact Lobby
                     </a>
                 </div>
             </div>
 
-            <!-- กรอบรูปโปรไฟล์สไตล์ใบรับรองการแพทย์ล้ำๆ -->
+            <!-- หน้ากากรูปภาพโปรไฟล์บนแท่นทดลองเสมือนจริง -->
             <div class="md:col-span-5 flex justify-center order-1 md:order-2">
-                <div class="relative">
-                    <div class="absolute -inset-4 bg-gradient-to-tr from-[#00A896]/20 to-[#028090]/10 rounded-[2.5rem] blur-xl opacity-60"></div>
-                    <div class="relative w-64 h-64 md:w-80 md:h-80 bg-white border border-slate-200 p-4 rounded-[2.5rem] shadow-xl">
-                        <img src="images/profile.jpg" alt="Medical Profile" class="w-full h-full object-cover rounded-[1.8rem] bg-slate-100" onerror="this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=500'">
+                <div class="relative group">
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-[#00B4D8]/30 to-purple-400/20 rounded-[3rem] blur-2xl opacity-70 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="relative w-64 h-64 md:w-80 md:h-80 bg-white/40 backdrop-blur-md border border-white/80 p-3 rounded-[3rem] shadow-2xl transition-all duration-300 group-hover:scale-[1.02]">
+                        <img src="images/profile.jpg" alt="Profile" class="w-full h-full object-cover rounded-[2.4rem]" onerror="this.src='https://images.unsplash.com/photo-1579684389782-64d84b5e905d?auto=format&fit=crop&q=80&w=500'">
+                        <!-- แท็ก HUD ลอยตกแต่งมุมภาพ -->
+                        <span class="absolute bottom-6 right-6 bg-[#1E3E62] text-[#CAF0F8] font-tech text-[8px] px-2 py-1 rounded-md shadow-md border border-slate-700/50">DATA_VERIFIED</span>
                     </div>
                 </div>
             </div>
@@ -128,97 +148,102 @@
     </section>
 
 
-    <!-- ================= ABOUT ME SECTION ================= -->
-    <section class="py-24 px-4 bg-white border-y border-slate-100" id="about">
+    <!-- ================= ABOUT ME SECTION (กล่องกระจก Bento Grid คลีนๆ) ================= -->
+    <section class="py-24 px-4 relative z-10" id="about">
         <div class="max-w-5xl mx-auto">
             <div class="mb-12 text-center">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-[#0F2C59] tracking-tight flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-user-doctor text-[#00A896]"></i> ข้อมูลประวัติส่วนตัว
+                <h2 class="text-2xl md:text-3xl font-extrabold text-[#1E3E62] tracking-tight flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-user-gear text-[#00B4D8]"></i> About Me
                 </h2>
-                <div class="h-1 w-12 bg-[#00A896] mx-auto mt-3 rounded-full"></div>
+                <div class="h-1 w-16 bg-gradient-to-r from-[#0077B6] to-[#00B4D8] mx-auto mt-3 rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- กล่องข้อมูลส่วนตัว -->
-                <div class="bg-[#F4F8F9] border border-slate-200/60 p-6 rounded-2xl shadow-sm space-y-4">
-                    <h3 class="text-lg font-bold text-[#0F2C59] flex items-center gap-2 border-b border-slate-200 pb-2">
-                        <i class="fa-solid fa-id-card text-[#028090]"></i> ข้อมูลทั่วไป
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                <!-- ข้อมูลส่วนตัวกึ่งโปร่งใส -->
+                <div class="md:col-span-6 bg-white/40 backdrop-blur-md border border-white/60 p-6 rounded-2xl shadow-xl relative overflow-hidden group">
+                    <!-- เส้นลำแสงเลเซอร์สแกนจางๆ ตอนเมาส์ชี้ -->
+                    <div class="laser-line absolute left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#00B4D8] to-transparent opacity-40 pointer-events-none"></div>
+                    
+                    <h3 class="text-base font-bold text-[#1E3E62] flex items-center gap-2 border-b border-[#1E3E62]/10 pb-3 mb-4">
+                        <i class="fa-solid fa-id-badge text-[#0077B6]"></i> ข้อมูลส่วนตัว
                     </h3>
-                    <div class="space-y-3 text-sm">
-                        <p class="flex items-center gap-2 font-medium text-slate-500">ชื่อ : <span class="text-[#0F2C59] font-semibold">[ __________________ ]</span></p>
-                        <p class="flex items-center gap-2 font-medium text-slate-500">โรงเรียน : <span class="text-[#0F2C59] font-semibold">[ __________________ ]</span></p>
-                        <p class="flex items-center gap-2 font-medium text-slate-500">แผนการเรียน : <span class="text-[#0F2C59] font-semibold">[ __________________ ]</span></p>
+                    <div class="space-y-3.5 text-sm font-semibold text-slate-600">
+                        <p class="flex items-center gap-2">ชื่อ : <span class="text-[#1E3E62]">__________________</span></p>
+                        <p class="flex items-center gap-2">โรงเรียน : <span class="text-[#1E3E62]">__________________</span></p>
+                        <p class="flex items-center gap-2">แผนการเรียน : <span class="text-[#1E3E62]">__________________</span></p>
                     </div>
                 </div>
 
-                <!-- กล่องเป้าหมาย / อุดมการณ์ -->
-                <div class="bg-[#F4F8F9] border border-slate-200/60 p-6 rounded-2xl shadow-sm flex flex-col justify-between">
+                <!-- เป้าหมายอุดมการณ์ -->
+                <div class="md:col-span-6 bg-white/40 backdrop-blur-md border border-white/60 p-6 rounded-2xl shadow-xl relative overflow-hidden group flex flex-col justify-between">
+                    <div class="laser-line absolute left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-40 pointer-events-none"></div>
+                    
                     <div>
-                        <h3 class="text-lg font-bold text-[#0F2C59] flex items-center gap-2 border-b border-slate-200 pb-2">
-                            <i class="fa-solid fa-stethoscope text-[#028090]"></i> เป้าหมายและปณิธาน
+                        <h3 class="text-base font-bold text-[#1E3E62] flex items-center gap-2 border-b border-[#1E3E62]/10 pb-3 mb-4">
+                            <i class="fa-solid fa-crosshairs text-[#0077B6]"></i> เป้าหมาย
                         </h3>
-                        <p class="text-sm text-slate-600 leading-relaxed mt-4">
-                            [ __________________________________________________________________________________________
-                            __________________________________________________________________________________________ ]
+                        <p class="text-sm font-semibold text-slate-600 leading-relaxed">
+                            ___________________________
                         </p>
                     </div>
-                    <span class="text-[10px] font-bold text-[#00A896]/70 tracking-widest uppercase block mt-4"><i class="fa-solid fa-star-of-life"></i> Medical Aspirations</span>
+                    <span class="text-[9px] font-tech text-[#00B4D8] tracking-widest block mt-6 uppercase">🧬 Core_Target_Loaded</span>
                 </div>
             </div>
         </div>
     </section>
 
 
-    <!-- ================= EDUCATION SECTION (ไทม์ไลน์คลีนๆ สไตล์บันทึกประวัติการศึกษา) ================= -->
-    <section class="py-24 px-4 max-w-4xl mx-auto" id="education">
+    <!-- ================= EDUCATION SECTION (ไทม์ไลน์เลเซอร์ชีพจรหัวใจ) ================= -->
+    <section class="py-24 px-4 max-w-4xl mx-auto relative z-10" id="education">
         <div class="mb-16 text-center">
-            <h2 class="text-2xl md:text-3xl font-extrabold text-[#0F2C59] tracking-tight flex items-center justify-center gap-2">
-                <i class="fa-solid fa-graduation-cap text-[#00A896]"></i> ประวัติการศึกษา
+            <h2 class="text-2xl md:text-3xl font-extrabold text-[#1E3E62] tracking-tight flex items-center justify-center gap-2">
+                <i class="fa-solid fa-graduation-cap text-[#00B4D8]"></i> Education
             </h2>
-            <div class="h-1 w-12 bg-[#00A896] mx-auto mt-3 rounded-full"></div>
+            <div class="h-1 w-16 bg-gradient-to-r from-[#0077B6] to-[#00B4D8] mx-auto mt-3 rounded-full"></div>
         </div>
 
-        <div class="relative border-l-2 border-slate-200 ml-4 md:ml-32 space-y-12">
+        <!-- แท่งแนวตั้งไทม์ไลน์ -->
+        <div class="relative border-l-2 border-[#00B4D8]/30 ml-4 md:ml-32 space-y-8">
             
-            <!-- ประถม -->
+            <!-- ประถมศึกษา -->
             <div class="relative pl-8 group">
-                <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#00A896] group-hover:bg-[#00A896] transition-colors flex items-center justify-center">
-                    <div class="w-1.5 h-1.5 rounded-full bg-[#00A896] group-hover:bg-white"></div>
+                <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-[#00B4D8] group-hover:bg-[#00B4D8] transition-all flex items-center justify-center">
+                    <span class="absolute w-2 h-2 rounded-full bg-[#00B4D8]/40 animate-ping"></span>
                 </div>
-                <div class="absolute left-[-110px] top-0 hidden md:block w-24 text-right">
-                    <span class="font-bold text-xs bg-slate-200/70 text-slate-600 px-2 py-1 rounded-md uppercase">Primary</span>
+                <div class="absolute left-[-115px] top-0.5 hidden md:block w-24 text-right">
+                    <span class="font-tech text-[9px] tracking-widest text-[#1E3E62]/50 font-bold">PRIMARY</span>
                 </div>
-                <div class="bg-white border border-slate-200/70 p-5 rounded-xl shadow-sm transition-all group-hover:shadow-md">
-                    <h3 class="font-bold text-base text-[#0F2C59]">ระดับประถมศึกษา</h3>
-                    <p class="text-sm text-slate-500 mt-1">[ __________________ ]</p>
+                <div class="bg-white/40 backdrop-blur-md border border-white/60 p-5 rounded-2xl shadow-md transition-all group-hover:bg-white/70 group-hover:translate-x-1">
+                    <h3 class="font-bold text-base text-[#1E3E62]">ประถมศึกษา</h3>
+                    <p class="text-sm text-slate-500 font-semibold mt-1">__________________</p>
                 </div>
             </div>
 
             <!-- มัธยมต้น -->
             <div class="relative pl-8 group">
-                <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#028090] group-hover:bg-[#028090] transition-colors flex items-center justify-center">
-                    <div class="w-1.5 h-1.5 rounded-full bg-[#028090] group-hover:bg-white"></div>
+                <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-[#00B4D8] group-hover:bg-[#00B4D8] transition-all flex items-center justify-center">
+                    <span class="absolute w-2 h-2 rounded-full bg-[#00B4D8]/40 animate-ping"></span>
                 </div>
-                <div class="absolute left-[-110px] top-0 hidden md:block w-24 text-right">
-                    <span class="font-bold text-xs bg-slate-200/70 text-slate-600 px-2 py-1 rounded-md uppercase">Junior High</span>
+                <div class="absolute left-[-115px] top-0.5 hidden md:block w-24 text-right">
+                    <span class="font-tech text-[9px] tracking-widest text-[#1E3E62]/50 font-bold">MIDDLE_SCH</span>
                 </div>
-                <div class="bg-white border border-slate-200/70 p-5 rounded-xl shadow-sm transition-all group-hover:shadow-md">
-                    <h3 class="font-bold text-base text-[#0F2C59]">ระดับมัธยมศึกษาตอนต้น</h3>
-                    <p class="text-sm text-slate-500 mt-1">[ __________________ ]</p>
+                <div class="bg-white/40 backdrop-blur-md border border-white/60 p-5 rounded-2xl shadow-md transition-all group-hover:bg-white/70 group-hover:translate-x-1">
+                    <h3 class="font-bold text-base text-[#1E3E62]">มัธยมต้น</h3>
+                    <p class="text-sm text-slate-500 font-semibold mt-1">__________________</p>
                 </div>
             </div>
 
             <!-- มัธยมปลาย -->
             <div class="relative pl-8 group">
-                <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-white border-2 border-[#0F2C59] group-hover:bg-[#0F2C59] transition-colors flex items-center justify-center">
-                    <div class="w-1.5 h-1.5 rounded-full bg-[#0F2C59] group-hover:bg-white"></div>
+                <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-[#00B4D8] group-hover:bg-[#00B4D8] transition-all flex items-center justify-center">
+                    <span class="absolute w-2 h-2 rounded-full bg-[#00B4D8]/40 animate-ping"></span>
                 </div>
-                <div class="absolute left-[-110px] top-0 hidden md:block w-24 text-right">
-                    <span class="font-bold text-xs bg-[#0F2C59]/10 text-[#0F2C59] px-2 py-1 rounded-md uppercase">Senior High</span>
+                <div class="absolute left-[-115px] top-0.5 hidden md:block w-24 text-right">
+                    <span class="font-tech text-[9px] tracking-widest text-[#00B4D8] font-bold">HIGH_SCH</span>
                 </div>
-                <div class="bg-white border border-slate-200 p-5 rounded-xl shadow-md border-l-4 border-l-[#00A896]">
-                    <h3 class="font-bold text-base text-[#0F2C59]">ระดับมัธยมศึกษาตอนปลาย</h3>
-                    <p class="text-sm text-slate-500 mt-1">[ __________________ ]</p>
+                <div class="bg-white/60 backdrop-blur-md border-2 border-[#00B4D8]/40 p-5 rounded-2xl shadow-lg border-l-4 border-l-[#00B4D8]">
+                    <h3 class="font-bold text-base text-[#1E3E62]">มัธยมปลาย</h3>
+                    <p class="text-sm text-slate-500 font-semibold mt-1">__________________</p>
                 </div>
             </div>
 
@@ -226,32 +251,32 @@
     </section>
 
 
-    <!-- ================= PORTFOLIO GALLERY SECTION (11 รูปผลงานเรียงเป็นตารางพรีเมียม) ================= -->
-    <section class="py-24 px-4 bg-white border-t border-slate-100" id="portfolio">
+    <!-- ================= PORTFOLIO GALLERY SECTION (คลังกระจกแสดงชิ้นงานทั้ง 11 หน้า) ================= -->
+    <section class="py-24 px-4 relative z-10" id="portfolio">
         <div class="max-w-6xl mx-auto">
             <div class="mb-12 text-center">
-                <h2 class="text-2xl md:text-3xl font-extrabold text-[#0F2C59] tracking-tight flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-microscope text-[#00A896]"></i> Portfolio Gallery
+                <h2 class="text-2xl md:text-3xl font-extrabold text-[#1E3E62] tracking-tight flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-images text-[#00B4D8]"></i> Portfolio Gallery
                 </h2>
-                <p class="text-xs font-medium text-slate-400 mt-2 uppercase tracking-wider">คลิกที่รูปภาพเพื่อเปิดดูขนาดใหญ่แบบสแกนวิเคราะห์ผลงาน</p>
-                <div class="h-1 w-12 bg-[#00A896] mx-auto mt-3 rounded-full"></div>
+                <div class="h-1 w-16 bg-gradient-to-r from-[#0077B6] to-[#00B4D8] mx-auto mt-3 rounded-full"></div>
             </div>
 
-            <!-- กริดแสดงผลงานแบบโมเดิร์นคลีน ทั้งหมด 11 ชิ้นงาน -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <!-- กริดกระจกแฝงเอฟเฟกต์ยกตัว 3D ลอยส่องแสงเรืองรอง ทั้งหมด 11 ชิ้นงาน -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
                 <script>
-                    // วนลูปสร้างการ์ดรูปภาพโปรเจกต์ 1-11 อ้างอิงตามโครงสร้างเดิมของคุณ
+                    // วนลูปโครงสร้างแกลเลอรีภาพ 1-11 หน้า ตามโครงร่างต้นฉบับของคุณ
                     for (let i = 1; i <= 11; i++) {
                         document.write(`
-                            <div class="group bg-white border border-slate-200 p-2 rounded-xl shadow-sm hover:shadow-md hover:border-[#00A896]/40 transition-all duration-200 cursor-pointer" onclick="openImage('images/page${i}.jpg')">
-                                <div class="aspect-[3/4] bg-slate-50 rounded-lg overflow-hidden relative border border-slate-100">
-                                    <img src="images/page${i}.jpg" alt="Portfolio Page ${i}" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=300'">
-                                    <div class="absolute inset-0 bg-[#0F2C59]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
-                                        <span class="text-white text-xs font-semibold bg-[#00A896] px-2.5 py-1 rounded shadow-md"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> ขยายดู</span>
+                            <div class="group bg-white/40 backdrop-blur-md border border-white/70 p-2.5 rounded-2xl shadow-md hover:shadow-xl hover:border-[#00B4D8] hover:-translate-y-2 transition-all duration-300 cursor-pointer" onclick="openImage('images/page${i}.jpg')">
+                                <div class="aspect-[3/4] bg-slate-100 rounded-xl overflow-hidden relative border border-slate-200/40 shadow-inner">
+                                    <img src="images/page${i}.jpg" alt="Portfolio Data Document ${i}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=300'">
+                                    <!-- เลเยอร์ HUD ลอยขึ้นตรวจจับภาพตอน Hover -->
+                                    <div class="absolute inset-0 bg-[#1E3E62]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col items-center justify-center p-2">
+                                        <span class="text-white text-[10px] font-bold bg-[#00B4D8] px-3 py-1.5 rounded-lg shadow-lg flex items-center gap-1"><i class="fa-solid fa-expand text-[8px]"></i> ANALYZE</span>
                                     </div>
                                 </div>
-                                <div class="mt-2 text-center">
-                                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Page ${i.toString().padStart(2, '0')}</span>
+                                <div class="mt-2.5 text-center font-tech text-[9px] font-bold text-slate-400 tracking-widest group-hover:text-[#00B4D8]">
+                                    PAGE_${i.toString().padStart(2, '0')}
                                 </div>
                             </div>
                         `);
@@ -262,75 +287,77 @@
     </section>
 
 
-    <!-- ================= CONTACT SECTION ================= -->
-    <section class="py-24 px-4 max-w-4xl mx-auto" id="contact">
+    <!-- ================= CONTACT SECTION (แผงตู้แคปซูลติดต่อสไตล์ล้ำยุค) ================= -->
+    <section class="py-24 px-4 max-w-4xl mx-auto relative z-10" id="contact">
         <div class="mb-12 text-center">
-            <h2 class="text-2xl md:text-3xl font-extrabold text-[#0F2C59] tracking-tight flex items-center justify-center gap-2">
-                <i class="fa-solid fa-address-book text-[#00A896]"></i> ช่องทางการติดต่อ
+            <h2 class="text-2xl md:text-3xl font-extrabold text-[#1E3E62] tracking-tight flex items-center justify-center gap-2">
+                <i class="fa-solid fa-address-card text-[#00B4D8]"></i> Contact
             </h2>
-            <div class="h-1 w-12 bg-[#00A896] mx-auto mt-3 rounded-full"></div>
+            <div class="h-1 w-16 bg-gradient-to-r from-[#0077B6] to-[#00B4D8] mx-auto mt-3 rounded-full"></div>
         </div>
 
-        <div class="bg-white border border-slate-200 p-6 md:p-8 rounded-2xl shadow-xl grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-white/40 backdrop-blur-md border border-white/70 p-6 md:p-8 rounded-3xl shadow-2xl grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
             <!-- Email -->
-            <div class="flex items-center gap-4 p-4 bg-[#F4F8F9] rounded-xl border border-slate-100">
-                <div class="w-10 h-10 bg-[#00A896]/10 text-[#00A896] rounded-xl flex items-center justify-center text-lg"><i class="fa-solid fa-envelope"></i></div>
+            <div class="flex items-center gap-4 p-4 bg-white/40 rounded-xl border border-white/60 shadow-sm hover:bg-white/80 transition-colors">
+                <div class="w-10 h-10 bg-[#00B4D8]/10 text-[#00B4D8] rounded-xl flex items-center justify-center text-lg shadow-inner"><i class="fa-solid fa-envelope"></i></div>
                 <div class="overflow-hidden">
-                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Email Address</span>
-                    <span class="text-sm font-semibold text-[#0F2C59] block truncate">[ __________________ ]</span>
+                    <span class="text-[9px] font-tech text-slate-400 font-bold block tracking-wider">EMAIL</span>
+                    <span class="text-sm font-bold text-[#1E3E62] block truncate">__________________</span>
                 </div>
             </div>
 
             <!-- Facebook -->
-            <div class="flex items-center gap-4 p-4 bg-[#F4F8F9] rounded-xl border border-slate-100">
-                <div class="w-10 h-10 bg-blue-600/10 text-blue-600 rounded-xl flex items-center justify-center text-lg"><i class="fa-brands fa-facebook-f"></i></div>
+            <div class="flex items-center gap-4 p-4 bg-white/40 rounded-xl border border-white/60 shadow-sm hover:bg-white/80 transition-colors">
+                <div class="w-10 h-10 bg-blue-600/10 text-blue-600 rounded-xl flex items-center justify-center text-lg shadow-inner"><i class="fa-brands fa-facebook-f"></i></div>
                 <div class="overflow-hidden">
-                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Facebook</span>
-                    <span class="text-sm font-semibold text-[#0F2C59] block truncate">[ __________________ ]</span>
+                    <span class="text-[9px] font-tech text-slate-400 font-bold block tracking-wider">FACEBOOK</span>
+                    <span class="text-sm font-bold text-[#1E3E62] block truncate">__________________</span>
                 </div>
             </div>
 
             <!-- Instagram -->
-            <div class="flex items-center gap-4 p-4 bg-[#F4F8F9] rounded-xl border border-slate-100">
-                <div class="w-10 h-10 bg-pink-600/10 text-pink-600 rounded-xl flex items-center justify-center text-lg"><i class="fa-brands fa-instagram"></i></div>
+            <div class="flex items-center gap-4 p-4 bg-white/40 rounded-xl border border-white/60 shadow-sm hover:bg-white/80 transition-colors">
+                <div class="w-10 h-10 bg-pink-600/10 text-pink-600 rounded-xl flex items-center justify-center text-lg shadow-inner"><i class="fa-brands fa-instagram"></i></div>
                 <div class="overflow-hidden">
-                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Instagram</span>
-                    <span class="text-sm font-semibold text-[#0F2C59] block truncate">[ __________________ ]</span>
+                    <span class="text-[9px] font-tech text-slate-400 font-bold block tracking-wider">INSTAGRAM</span>
+                    <span class="text-sm font-bold text-[#1E3E62] block truncate">__________________</span>
                 </div>
             </div>
 
             <!-- GitHub -->
-            <div class="flex items-center gap-4 p-4 bg-[#F4F8F9] rounded-xl border border-slate-100">
-                <div class="w-10 h-10 bg-slate-900/10 text-slate-900 rounded-xl flex items-center justify-center text-lg"><i class="fa-brands fa-github"></i></div>
+            <div class="flex items-center gap-4 p-4 bg-white/40 rounded-xl border border-white/60 shadow-sm hover:bg-white/80 transition-colors">
+                <div class="w-10 h-10 bg-slate-900/10 text-slate-900 rounded-xl flex items-center justify-center text-lg shadow-inner"><i class="fa-brands fa-github"></i></div>
                 <div class="overflow-hidden">
-                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">GitHub</span>
-                    <span class="text-sm font-semibold text-[#0F2C59] block truncate">[ __________________ ]</span>
+                    <span class="text-[9px] font-tech text-slate-400 font-bold block tracking-wider">GITHUB</span>
+                    <span class="text-sm font-bold text-[#1E3E62] block truncate">__________________</span>
                 </div>
             </div>
+
         </div>
     </section>
 
 
-    <!-- ================= MEDICAL IMAGE LIGHTBOX MODAL ================= -->
-    <div id="popup" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm hidden z-[100] flex-col items-center justify-center p-4 transition-all duration-200 opacity-0">
-        <button onclick="closeImage()" class="absolute top-6 right-6 text-[#0F2C59] bg-white border border-slate-200 text-xl w-10 h-10 flex items-center justify-center rounded-xl shadow-lg hover:text-red-500 transition-all">
+    <!-- ================= FULL VIEW IMAGE LIGHTBOX MODAL (หน้ากากส่องขยายขนาดใหญ่) ================= -->
+    <div id="popup" class="fixed inset-0 bg-[#1E3E62]/70 backdrop-blur-md hidden z-[100] flex-col items-center justify-center p-4 transition-all duration-300 opacity-0">
+        <button onclick="closeImage()" class="absolute top-6 right-6 text-white bg-slate-900/40 border border-white/20 text-xl w-10 h-10 flex items-center justify-center rounded-xl shadow-2xl hover:bg-[#00B4D8] transition-all">
             <i class="fa-solid fa-xmark"></i>
         </button>
-        <div class="max-w-3xl max-h-[85vh] overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl">
-            <img id="popup-img" class="w-full h-full object-contain max-h-[82vh] rounded-xl" src="" alt="Portfolio Expanded Document">
+        <div class="max-w-3xl max-h-[85vh] overflow-hidden rounded-2xl border border-white/60 bg-white/80 p-2 shadow-2xl">
+            <img id="popup-img" class="w-full h-full object-contain max-h-[82vh] rounded-xl" src="" alt="Expanded Data Sheet">
         </div>
     </div>
 
 
     <!-- ================= FOOTER ================= -->
-    <footer class="bg-white text-slate-400 py-8 text-center text-xs font-medium border-t border-slate-100">
-        © 2026 Portfolio — Medical Education Admission. All Rights Reserved.
+    <footer class="bg-white/20 backdrop-blur-md text-slate-400 py-8 text-center font-tech text-[9px] tracking-widest border-t border-white/40 relative z-10">
+        © 2026 PORTFOLIO // LAB_MODE: FUTURISTIC_ICE_BLUE. ALL RIGHTS RESERVED.
     </footer>
 
 
-    <!-- ================= JAVASCRIPT CONTROLLERS ================= -->
+    <!-- ================= JAVASCRIPT SYSTEM CONTROLLERS ================= -->
     <script>
-        // 1. ควบคุมเอฟเฟกต์การปิดหน้าดาวน์โหลด (Loader) 
+        // 1. จัดการปิดระบบบูตจำลองหน้าแล็บวิจัย (Loader) เมื่อประมวลผลข้อมูลหน้าเว็บเสร็จสมบูรณ์
         window.addEventListener('load', function() {
             const loader = document.getElementById('loader');
             setTimeout(() => {
@@ -338,11 +365,11 @@
                 setTimeout(() => {
                     loader.style.display = 'none';
                     document.body.classList.remove('no-scroll');
-                }, 500);
-            }, 600); 
+                }, 700);
+            }, 800); 
         });
 
-        // 2. ระบบ Popup ขยายภาพแฟ้มสะสมผลงานใหญ่เต็มจอ
+        // 2. จัดการหน้าต่างป๊อปอัปขยายแผ่นข้อมูลเอกสารหน้าพอร์ตโฟลิโอให้ใหญ่สะใจเต็มสายตา
         function openImage(src) {
             const popup = document.getElementById('popup');
             const popupImg = document.getElementById('popup-img');
@@ -365,7 +392,7 @@
             setTimeout(() => {
                 popup.classList.remove('flex');
                 popup.classList.add('hidden');
-            }, 200);
+            }, 300);
 
             document.body.classList.remove('no-scroll');
         }
