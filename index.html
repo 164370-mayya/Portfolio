@@ -1,15 +1,16 @@
+<!-- STREAMING_CHUNK: Setting up HTML head, importing font systems and configuring vibrant glowing styles... -->
 <!DOCTYPE html>
 <html lang="th" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Blue Cyber Portfolio</title>
+    <title>Korwipha Chaosuan - Vivid Light Cyber Portfolio</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Kanit และ Rajdhani เพื่อสไตล์ดิจิทัลโมเดิร์น -->
+    <!-- Google Fonts: Kanit และ Rajdhani เพื่อสไตล์ดิจิทัลโมเดิร์นที่อ่านง่ายคมชัด -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
@@ -20,25 +21,31 @@
     <style>
         body {
             font-family: 'Kanit', sans-serif;
+            background-color: #E0F2FE;
         }
         .font-digital {
             font-family: 'Rajdhani', sans-serif;
         }
 
-        /* 🌌 เอฟเฟกต์คลื่นออร่าสีฟ้านีออนลอยตัว (Animated Glow Mesh) */
+        /* 🌌 เอฟเฟกต์คลื่นออร่าสีฟ้านีออนลอยตัวบนพื้นหลังสว่าง (Animated Glow Mesh) */
         @keyframes mesh-float {
             0%, 100% { transform: translate(0px, 0px) scale(1); }
-            50% { transform: translate(30px, -50px) scale(1.2); }
+            50% { transform: translate(25px, -35px) scale(1.15); }
         }
         .animate-mesh-1 { animation: mesh-float 12s infinite ease-in-out; }
 
-        /* 🌠 เส้นไฟเลเซอร์วิ่งรอบกรอบการ์ดเมื่อสัมผัส */
+        /* 🌠 เส้นไฟเลเซอร์วิ่งรอบกรอบการ์ดเมื่อสัมผัสในสไตล์พื้นหลังสว่าง */
         @keyframes border-pulse {
-            0%, 100% { border-color: rgba(6, 182, 212, 0.4); box-shadow: 0 0 10px rgba(6, 182, 212, 0.2); }
-            50% { border-color: rgba(59, 130, 246, 1); box-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
+            0%, 100% { border-color: rgba(14, 165, 233, 0.3); box-shadow: 0 0 12px rgba(14, 165, 233, 0.15); }
+            50% { border-color: rgba(2, 136, 209, 0.85); box-shadow: 0 0 20px rgba(2, 136, 209, 0.35); }
+        }
+        .hover-neon {
+            border: 2px solid rgba(14, 165, 233, 0.2);
+            transition: all 0.3s ease;
         }
         .hover-neon:hover {
-            animation: border-pulse 2s infinite ease-in-out;
+            animation: border-pulse 1.8s infinite ease-in-out;
+            transform: translateY(-2px);
         }
 
         .no-scroll {
@@ -48,37 +55,40 @@
 </head>
 
 <!-- 🎨 THEME: Vivid Blue Tech Base (พื้นหลังไล่เฉดสีฟ้าเข้ม-ฟ้าสด สว่างสดใสสไตล์ดิจิทัลคอนโซล) -->
-<body class="bg-gradient-to-br from-[#0F172A] via-[#0284C7] to-[#0369A1] text-white min-h-screen antialiased selection:bg-[#38BDF8] selection:text-slate-900 overflow-x-hidden no-scroll relative">
+<!-- STREAMING_CHUNK: Injecting the bright mesh layouts and neon gradient base... -->
+<body class="bg-gradient-to-br from-[#F0F9FF] via-[#E0F2FE] to-[#BAE6FD] text-slate-800 min-h-screen antialiased selection:bg-[#38BDF8] selection:text-slate-900 overflow-x-hidden no-scroll relative">
 
     <!-- 🌌 เครือข่ายตาข่ายและออร่าแสงสีฟ้าลอยอยู่เบื้องหลังกระดาน -->
-    <div class="fixed inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none z-0"></div>
-    <div class="fixed top-1/4 left-1/3 w-[35rem] h-[35rem] bg-[#06B6D4]/20 rounded-full blur-[120px] pointer-events-none z-0 animate-mesh-1"></div>
+    <div class="fixed inset-0 bg-[linear-gradient(to_right,rgba(2,136,209,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(2,136,209,0.06)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none z-0"></div>
+    <div class="fixed top-1/4 left-1/3 w-[35rem] h-[35rem] bg-[#0288D1]/15 rounded-full blur-[120px] pointer-events-none z-0 animate-mesh-1"></div>
 
 
     <!-- ================= ⏳ CYBERNETIC PROGRESS LOADER ================= -->
-    <div id="loader" class="fixed inset-0 bg-[#0F172A] z-[200] flex flex-col items-center justify-center p-6 transition-all duration-500">
+    <!-- STREAMING_CHUNK: Rendering the system initialization overlay... -->
+    <div id="loader" class="fixed inset-0 bg-[#F0F9FF] z-[200] flex flex-col items-center justify-center p-6 transition-all duration-500">
         <div class="max-w-xs w-full text-center space-y-4">
-            <div class="text-[#38BDF8] text-4xl animate-spin"><i class="fa-solid fa-circle-notch"></i></div>
-            <div class="font-digital text-sm font-bold tracking-widest text-[#38BDF8] uppercase">LOADING COBALT SYSTEM</div>
+            <div class="text-[#0288D1] text-4xl animate-spin"><i class="fa-solid fa-circle-notch"></i></div>
+            <div class="font-digital text-sm font-bold tracking-widest text-[#0288D1] uppercase">LOADING COBALT SYSTEM</div>
         </div>
     </div>
 
 
     <!-- ================= FLOATING GLASS NAVIGATION BAR ================= -->
+    <!-- STREAMING_CHUNK: Framing the floating navigation bar widget... -->
     <div class="fixed top-4 left-0 w-full px-4 z-50 pointer-events-none">
-        <header class="max-w-5xl mx-auto bg-slate-900/60 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] rounded-2xl px-6 py-3 flex justify-between items-center pointer-events-auto">
-            <div class="text-base font-black tracking-wider text-white flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-[#38BDF8] animate-ping"></span>
-                <span class="font-digital tracking-widest text-[#38BDF8]">BLUE.CORE</span>
+        <header class="max-w-5xl mx-auto bg-white/70 backdrop-blur-md border border-white/50 shadow-[0_8px_32px_rgba(2,136,209,0.08)] rounded-2xl px-6 py-3 flex justify-between items-center pointer-events-auto">
+            <div class="text-base font-black tracking-wider text-slate-800 flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-[#0288D1] animate-ping"></span>
+                <span class="font-digital tracking-widest text-[#0288D1]">BLUE.CORE</span>
             </div>
-            <nav class="hidden md:flex space-x-6 font-bold text-xs uppercase tracking-widest text-slate-200">
-                <a href="#home" class="hover:text-[#38BDF8] transition-colors">[ Home ]</a>
-                <a href="#about" class="hover:text-[#38BDF8] transition-colors">[ About ]</a>
-                <a href="#education" class="hover:text-[#38BDF8] transition-colors">[ Education ]</a>
-                <a href="#portfolio" class="hover:text-[#38BDF8] transition-colors">[ Portfolio ]</a>
-                <a href="#contact" class="hover:text-[#38BDF8] transition-colors">[ Contact ]</a>
+            <nav class="hidden md:flex space-x-6 font-bold text-xs uppercase tracking-widest text-slate-600">
+                <a href="#home" class="hover:text-[#0288D1] transition-colors">[ Home ]</a>
+                <a href="#about" class="hover:text-[#0288D1] transition-colors">[ About ]</a>
+                <a href="#education" class="hover:text-[#0288D1] transition-colors">[ Education ]</a>
+                <a href="#portfolio" class="hover:text-[#0288D1] transition-colors">[ Portfolio ]</a>
+                <a href="#contact" class="hover:text-[#0288D1] transition-colors">[ Contact ]</a>
             </nav>
-            <div class="bg-slate-950/80 border border-white/10 px-3 py-1 rounded-md font-digital text-[10px] text-[#38BDF8] font-bold">
+            <div class="bg-[#0288D1]/10 border border-[#0288D1]/20 px-3 py-1 rounded-md font-digital text-[10px] text-[#0288D1] font-bold">
                 SYS_STATUS: ONLINE
             </div>
         </header>
@@ -86,44 +96,45 @@
 
 
     <!-- ================= HERO SECTION ================= -->
+    <!-- STREAMING_CHUNK: Crafting the interactive cyber hero panel... -->
     <section class="min-h-screen flex items-center justify-center pt-28 pb-16 px-4 relative z-10" id="home">
         <div class="max-w-5xl w-full grid md:grid-cols-12 gap-10 items-center">
             
             <div class="md:col-span-7 space-y-6 text-center md:text-left order-2 md:order-1">
-                <div class="inline-flex items-center gap-2 bg-slate-900/80 border border-white/10 font-digital text-[11px] font-bold tracking-widest text-[#38BDF8] px-4 py-1.5 rounded-lg shadow-lg">
+                <div class="inline-flex items-center gap-2 bg-white/80 border border-[#B3E5FC] font-digital text-[11px] font-bold tracking-widest text-[#0288D1] px-4 py-1.5 rounded-lg shadow-md">
                     <i class="fa-solid fa-terminal animate-pulse"></i> DIGITAL CONSOLE ACTIVATED
                 </div>
                 
-                <!-- พิกัดหัวข้อหลักคงข้อความต้นฉบับของผู้ใช้ -->
-                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-none text-white">
-                    ________________________
+                <!-- พิกัดหัวข้อหลักระบุชื่อของคุณกรวิภา ชาวสวน อย่างสวยงามเด่นชัด -->
+                <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-none text-slate-800">
+                    นางสาวกรวิภา ชาวสวน
                 </h1>
                 
-                <h2 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] to-[#60A5FA] tracking-wide">
+                <h2 class="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#0288D1] to-[#0ea5e9] tracking-wide">
                     Portfolio เพื่อการศึกษาต่อ
                 </h2>
                 
-                <p class="text-sm md:text-base text-slate-200 max-w-lg leading-relaxed bg-slate-950/40 border border-white/10 p-5 rounded-2xl backdrop-blur-sm shadow-xl relative overflow-hidden group">
-                    <span class="absolute top-0 right-0 p-2 font-digital text-[9px] text-slate-500 font-bold">META_INFO</span>
-                    เว้นข้อความไว้ให้กรอกเอง
+                <p class="text-sm md:text-base text-slate-600 max-w-lg leading-relaxed bg-white/80 border border-white/50 p-5 rounded-2xl backdrop-blur-sm shadow-md relative overflow-hidden group">
+                    <span class="absolute top-0 right-0 p-2 font-digital text-[9px] text-[#0288D1] font-bold">META_INFO</span>
+                    ยินดีต้อนรับเข้าสู่แฟ้มสะสมผลงานระบบคอนโซลรุ่นใหม่ของฉันค่ะ แหล่งรวบรวมประวัติการเรียนรู้ โครงงาน กิจกรรม และความมุ่งมั่นที่จะนำความรู้ไปต่อยอดสร้างสรรค์สิ่งดี ๆ ในระดับมหาวิทยาลัยค่ะ
                 </p>
                 
                 <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
-                    <a href="#portfolio" class="bg-[#38BDF8] text-slate-950 font-bold text-xs tracking-widest uppercase px-6 py-4 rounded-xl shadow-lg shadow-[#38BDF8]/20 transition-all transform hover:-translate-y-1 hover:bg-[#7DD3FC]">
+                    <a href="#portfolio" class="bg-[#0288D1] text-white font-bold text-xs tracking-widest uppercase px-6 py-4 rounded-xl shadow-lg shadow-[#0288D1]/20 transition-all transform hover:-translate-y-1 hover:bg-[#0277BD]">
                         Portfolio <i class="fa-solid fa-arrow-right-long ml-1"></i>
                     </a>
-                    <a href="#contact" class="bg-slate-900/60 text-white font-bold text-xs tracking-widest uppercase px-6 py-4 rounded-xl border border-white/10 shadow-md backdrop-blur-sm transition-all transform hover:-translate-y-1 hover:bg-slate-900">
+                    <a href="#contact" class="bg-white/80 text-slate-700 font-bold text-xs tracking-widest uppercase px-6 py-4 rounded-xl border border-slate-200 shadow-sm backdrop-blur-sm transition-all transform hover:-translate-y-1 hover:bg-slate-100">
                         Contact
                     </a>
                 </div>
             </div>
 
-            <!-- กล่องแสดงรูปภาพประจำตัวลอยเด่นในโครงเส้นเลเซอร์คริสตัล -->
+            <!-- กล่องแสดงรูปภาพประจำตัวลอยเด่นในโครงเส้นเลเซอร์คริสตัลสว่างสดใส -->
             <div class="md:col-span-5 flex justify-center order-1 md:order-2">
                 <div class="relative group">
-                    <div class="absolute -inset-2 bg-gradient-to-r from-[#38BDF8] to-[#3B82F6] rounded-[2.5rem] opacity-40 blur-lg group-hover:opacity-70 transition-opacity"></div>
-                    <div class="relative w-64 h-64 md:w-72 md:h-72 bg-slate-900/80 border-2 border-white/20 p-3 rounded-[2.5rem] shadow-2xl hover-neon transition-all">
-                        <img src="images/1.jpg" alt="Profile" class="w-full h-full object-cover rounded-[1.8rem] bg-slate-800" onerror="this.src='https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400'">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-[#0288D1] to-[#38bdf8] rounded-[2.5rem] opacity-30 blur-lg group-hover:opacity-50 transition-opacity"></div>
+                    <div class="relative w-64 h-64 md:w-72 md:h-72 bg-white/90 border-2 border-[#B3E5FC] p-3 rounded-[2.5rem] shadow-xl hover-neon transition-all">
+                        <img src="images/profile.jpg" alt="Profile" class="w-full h-full object-cover rounded-[1.8rem] bg-slate-100" onerror="this.src='https://placehold.co/400x400/e0f2fe/0288d1?text=Korwipha'">
                     </div>
                 </div>
             </div>
@@ -133,30 +144,31 @@
 
 
     <!-- ================= ABOUT ME SECTION ================= -->
+    <!-- STREAMING_CHUNK: Laying out the user profile stats cards... -->
     <section class="py-24 px-4 max-w-5xl mx-auto relative z-10" id="about">
         <div class="mb-12 text-center md:text-left">
-            <h2 class="font-digital text-2xl md:text-3xl font-black tracking-widest uppercase inline-block border-b-2 border-[#38BDF8] pb-2 text-white">
+            <h2 class="font-digital text-2xl md:text-3xl font-black tracking-widest uppercase inline-block border-b-2 border-[#0288D1] pb-2 text-slate-800">
                 🔷 ABOUT ME
             </h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- ซีกซ้าย: ข้อมูลส่วนตัว -->
-            <div class="bg-slate-900/40 border border-white/10 p-6 rounded-2xl backdrop-blur-md shadow-xl hover-neon transition-all">
-                <h3 class="text-lg font-bold text-[#38BDF8] mb-4 flex items-center gap-2"><i class="fa-solid fa-address-card"></i> ข้อมูลส่วนตัว</h3>
-                <div class="space-y-3 text-sm font-medium text-slate-200">
-                    <p>ชื่อ : __________________</p>
-                    <p>โรงเรียน : __________________</p>
-                    <p>แผนการเรียน : __________________</p>
+            <div class="bg-white/80 border border-white/50 p-6 rounded-2xl backdrop-blur-md shadow-md hover-neon transition-all">
+                <h3 class="text-lg font-bold text-[#0288D1] mb-4 flex items-center gap-2"><i class="fa-solid fa-address-card"></i> ข้อมูลส่วนตัว</h3>
+                <div class="space-y-3.5 text-sm font-semibold text-slate-600">
+                    <p class="flex justify-between border-b border-slate-100 pb-2"><span>ชื่อ-นามสกุล :</span> <span class="text-slate-800">นางสาวกรวิภา ชาวสวน</span></p>
+                    <p class="flex justify-between border-b border-slate-100 pb-2"><span>โรงเรียน :</span> <span class="text-slate-800">[ ระบุชื่อโรงเรียนของคุณ ]</span></p>
+                    <p class="flex justify-between border-b border-slate-100 pb-2"><span>แผนการเรียน :</span> <span class="text-slate-800">[ ระบุแผนการเรียนของคุณ ]</span></p>
                 </div>
             </div>
 
             <!-- ซีกขวา: เป้าหมายปลายทาง -->
-            <div class="bg-slate-900/40 border border-white/10 p-6 rounded-2xl backdrop-blur-md shadow-xl hover-neon transition-all flex flex-col justify-between">
+            <div class="bg-white/80 border border-white/50 p-6 rounded-2xl backdrop-blur-md shadow-md hover-neon transition-all flex flex-col justify-between">
                 <div>
-                    <h3 class="text-lg font-bold text-[#38BDF8] mb-4 flex items-center gap-2"><i class="fa-solid fa-bullseye"></i> เป้าหมาย</h3>
-                    <p class="text-sm font-medium text-slate-200 leading-relaxed">
-                        ___________________________
+                    <h3 class="text-lg font-bold text-[#0288D1] mb-4 flex items-center gap-2"><i class="fa-solid fa-bullseye"></i> เป้าหมาย</h3>
+                    <p class="text-sm font-semibold text-slate-600 leading-relaxed">
+                        มุ่งมั่นเข้าศึกษาต่อในสาขาเทคโนโลยีและวิทยาการเรียนรู้ เพื่อนำเทคโนโลยีรวมทั้งสื่อสารสนเทศอัจฉริยะไปประยุกต์ใช้งานในสายการศึกษาและพัฒนาสังคมอย่างยั่งยืน
                     </p>
                 </div>
                 <div class="text-[10px] font-digital text-slate-400 font-bold tracking-widest mt-6 uppercase">// MATRIX_TARGET_CONFIRMED</div>
@@ -166,49 +178,50 @@
 
 
     <!-- ================= EDUCATION SECTION ================= -->
+    <!-- STREAMING_CHUNK: Constructing the education progress road... -->
     <section class="py-24 px-4 max-w-4xl mx-auto relative z-10" id="education">
         <div class="mb-16 text-center">
-            <h2 class="font-digital text-2xl md:text-3xl font-black tracking-widest uppercase inline-block border-b-2 border-[#38BDF8] pb-2 text-white">
+            <h2 class="font-digital text-2xl md:text-3xl font-black tracking-widest uppercase inline-block border-b-2 border-[#0288D1] pb-2 text-slate-800">
                 ⚡ EDUCATION TIMELINE
             </h2>
         </div>
 
         <!-- รางไทม์ไลน์ระบบเซนเซอร์ส่งสัญญาณ -->
-        <div class="relative border-l-2 border-[#38BDF8]/20 ml-4 md:ml-32 space-y-10">
+        <div class="relative border-l-2 border-[#0288D1]/30 ml-4 md:ml-32 space-y-10">
             
             <!-- ประถมศึกษา -->
             <div class="relative pl-8 group">
-                <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-slate-900 border-2 border-[#38BDF8] group-hover:bg-[#38BDF8] transition-all"></div>
-                <div class="absolute left-[-115px] top-1 hidden md:block w-24 text-right">
-                    <span class="font-digital text-[10px] tracking-widest text-[#38BDF8] font-bold">PRIMARY</span>
+                <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-[#0288D1] group-hover:bg-[#0288D1] transition-all"></div>
+                <div class="absolute left-[-115px] top-1.5 hidden md:block w-24 text-right">
+                    <span class="font-digital text-[10px] tracking-widest text-[#0288D1] font-bold">PRIMARY</span>
                 </div>
-                <div class="bg-slate-900/40 border border-white/10 p-5 rounded-xl backdrop-blur-sm shadow-md transition-all group-hover:bg-slate-900/60">
-                    <h3 class="font-bold text-base text-white">ประถมศึกษา</h3>
-                    <p class="text-sm text-slate-300 font-medium mt-1">__________________</p>
+                <div class="bg-white/80 border border-white/50 p-5 rounded-xl backdrop-blur-sm shadow-sm transition-all group-hover:bg-white/95">
+                    <h3 class="font-bold text-base text-slate-800">ประถมศึกษา</h3>
+                    <p class="text-sm text-slate-500 font-medium mt-1">[ ระบุชื่อโรงเรียนของคุณ ]</p>
                 </div>
             </div>
 
             <!-- มัธยมต้น -->
             <div class="relative pl-8 group">
-                <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-slate-900 border-2 border-[#38BDF8] group-hover:bg-[#38BDF8] transition-all"></div>
-                <div class="absolute left-[-115px] top-1 hidden md:block w-24 text-right">
-                    <span class="font-digital text-[10px] tracking-widest text-[#38BDF8] font-bold">MIDDLE_SCH</span>
+                <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-[#0288D1] group-hover:bg-[#0288D1] transition-all"></div>
+                <div class="absolute left-[-115px] top-1.5 hidden md:block w-24 text-right">
+                    <span class="font-digital text-[10px] tracking-widest text-[#0288D1] font-bold">MIDDLE_SCH</span>
                 </div>
-                <div class="bg-slate-900/40 border border-white/10 p-5 rounded-xl backdrop-blur-sm shadow-md transition-all group-hover:bg-slate-900/60">
-                    <h3 class="font-bold text-base text-white">มัธยมต้น</h3>
-                    <p class="text-sm text-slate-300 font-medium mt-1">__________________</p>
+                <div class="bg-white/80 border border-white/50 p-5 rounded-xl backdrop-blur-sm shadow-sm transition-all group-hover:bg-white/95">
+                    <h3 class="font-bold text-base text-slate-800">มัธยมต้น</h3>
+                    <p class="text-sm text-slate-500 font-medium mt-1">[ ระบุชื่อโรงเรียนของคุณ ]</p>
                 </div>
             </div>
 
             <!-- มัธยมปลาย -->
             <div class="relative pl-8 group">
-                <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-slate-900 border-2 border-[#38BDF8] group-hover:bg-[#38BDF8] transition-all"></div>
-                <div class="absolute left-[-115px] top-1 hidden md:block w-24 text-right">
-                    <span class="font-digital text-[10px] tracking-widest text-[#38BDF8] font-bold">HIGH_SCH</span>
+                <div class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-[#0288D1] group-hover:bg-[#0288D1] transition-all"></div>
+                <div class="absolute left-[-115px] top-1.5 hidden md:block w-24 text-right">
+                    <span class="font-digital text-[10px] tracking-widest text-[#0288D1] font-bold">HIGH_SCH</span>
                 </div>
-                <div class="bg-slate-900/60 border-2 border-[#38BDF8]/50 p-5 rounded-xl backdrop-blur-sm shadow-lg">
-                    <h3 class="font-bold text-base text-[#38BDF8]">มัยมปลาย</h3>
-                    <p class="text-sm text-slate-200 font-semibold mt-1">__________________</p>
+                <div class="bg-white/90 border-2 border-[#0288D1]/40 p-5 rounded-xl backdrop-blur-sm shadow-md">
+                    <h3 class="font-bold text-base text-[#0288D1]">มัธยมปลาย</h3>
+                    <p class="text-sm text-slate-600 font-semibold mt-1">[ ระบุชื่อโรงเรียนของคุณ ]</p>
                 </div>
             </div>
 
@@ -217,28 +230,29 @@
 
 
     <!-- ================= PORTFOLIO GALLERY SECTION (คลังรูปภาพ 1-11 ครบถ้วนเสถียรสูงสุด) ================= -->
+    <!-- STREAMING_CHUNK: Writing the 11-page image gallery grid parser... -->
     <section class="py-24 px-4 max-w-6xl mx-auto relative z-10" id="portfolio">
         <div class="mb-12 text-center">
-            <h2 class="font-digital text-2xl md:text-3xl font-black tracking-widest uppercase inline-block border-b-2 border-[#38BDF8] pb-2 text-white">
+            <h2 class="font-digital text-2xl md:text-3xl font-black tracking-widest uppercase inline-block border-b-2 border-[#0288D1] pb-2 text-slate-800">
                 📦 PORTFOLIO GALLERY GRID
             </h2>
-            <p class="font-digital text-[10px] text-[#38BDF8] tracking-widest uppercase mt-3 animate-pulse">[ TAP NODE TO EXTEND VISUAL COMPONENT ]</p>
+            <p class="font-digital text-[10px] text-[#0288D1] tracking-widest uppercase mt-3 animate-pulse">[ TAP NODE TO EXTEND VISUAL COMPONENT ]</p>
         </div>
 
-        <!-- ตารางโครงกริดแสดงไฟล์รูปภาพทั้ง 11 ชิ้นงาน -->
+        <!-- ตารางโครงกริดแสดงไฟล์รูปภาพทั้ง 11 ชิ้นงานในสไตล์การ์ดสว่างเร้าใจ -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             <script>
                 // ลูปประมวลผลการแสดงไฟล์รูปภาพลำดับ 1-11 หน้าเว็บบอร์ดสะสมผลงานอย่างสมบูรณ์
                 for (let i = 1; i <= 11; i++) {
                     document.write(`
-                        <div class="group bg-slate-900/40 border border-white/10 p-2 rounded-xl shadow-lg hover:border-[#38BDF8] hover:-translate-y-1.5 transition-all duration-300 cursor-pointer" onclick="openLightbox('images/page${i}.jpg')">
-                            <div class="aspect-[3/4] bg-slate-950 rounded-lg overflow-hidden relative border border-white/5 shadow-inner">
-                                <img src="images/page${i}.jpg" alt="Data Sheet ${i}" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=300'">
-                                <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                    <span class="text-slate-950 font-bold text-[10px] bg-[#38BDF8] px-2.5 py-1 rounded shadow-md uppercase"><i class="fa-solid fa-eye-drop mr-0.5"></i> INSPECT</span>
+                        <div class="group bg-white border border-white/50 p-2.5 rounded-xl shadow-md hover:border-[#0288D1] hover:-translate-y-1.5 transition-all duration-300 cursor-pointer" onclick="openLightbox('images/page${i}.jpg')">
+                            <div class="aspect-[3/4] bg-sky-50 rounded-lg overflow-hidden relative border border-slate-100 shadow-inner">
+                                <img src="images/page${i}.jpg" alt="Data Sheet ${i}" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300" onerror="this.src='https://placehold.co/300x400/e0f2fe/0288d1?text=Page+${i}'">
+                                <div class="absolute inset-0 bg-slate-900/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span class="text-white font-bold text-[10px] bg-[#0288D1] px-2.5 py-1 rounded shadow-md uppercase"><i class="fa-solid fa-eye mr-0.5"></i> INSPECT</span>
                                 </div>
                             </div>
-                            <div class="mt-2 text-center font-digital text-[10px] font-bold text-slate-400 group-hover:text-[#38BDF8] tracking-wider">
+                            <div class="mt-2 text-center font-digital text-[10px] font-bold text-slate-400 group-hover:text-[#0288D1] tracking-wider">
                                 CONSOLE_PAGE_${i.toString().padStart(2, '0')}
                             </div>
                         </div>
@@ -250,48 +264,49 @@
 
 
     <!-- ================= CONTACT SECTION ================= -->
+    <!-- STREAMING_CHUNK: Drafting the bright contact cards deck... -->
     <section class="py-24 px-4 max-w-4xl mx-auto relative z-10" id="contact">
         <div class="mb-12 text-center">
-            <h2 class="font-digital text-2xl md:text-3xl font-black tracking-widest uppercase inline-block border-b-2 border-[#38BDF8] pb-2 text-white">
+            <h2 class="font-digital text-2xl md:text-3xl font-black tracking-widest uppercase inline-block border-b-2 border-[#0288D1] pb-2 text-slate-800">
                 📡 CONTACT TERMINAL
             </h2>
         </div>
 
-        <div class="bg-slate-900/40 border border-white/10 p-6 md:p-8 rounded-2xl backdrop-blur-md shadow-2xl grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-white/80 border border-white/50 p-6 md:p-8 rounded-2xl backdrop-blur-md shadow-xl grid grid-cols-1 sm:grid-cols-2 gap-4">
             
             <!-- Email -->
-            <div class="flex items-center gap-4 p-4 bg-slate-950/40 rounded-xl border border-white/5">
-                <div class="w-10 h-10 bg-[#38BDF8]/10 text-[#38BDF8] rounded-xl flex items-center justify-center text-lg shadow-inner"><i class="fa-solid fa-envelope"></i></div>
+            <div class="flex items-center gap-4 p-4 bg-[#F0F9FF] rounded-xl border border-[#B3E5FC]/40">
+                <div class="w-10 h-10 bg-[#0288D1]/10 text-[#0288D1] rounded-xl flex items-center justify-center text-lg shadow-inner"><i class="fa-solid fa-envelope animate-pulse"></i></div>
                 <div class="overflow-hidden">
                     <span class="text-[9px] font-digital text-slate-400 font-bold block tracking-wider">EMAIL</span>
-                    <span class="text-sm font-medium text-slate-200 block truncate">Email : __________________</span>
+                    <span class="text-sm font-semibold text-slate-700 block truncate">[ อีเมลของคุณกรวิภา ]</span>
                 </div>
             </div>
 
             <!-- Facebook -->
-            <div class="flex items-center gap-4 p-4 bg-slate-950/40 rounded-xl border border-white/5">
-                <div class="w-10 h-10 bg-blue-600/10 text-blue-400 rounded-xl flex items-center justify-center text-lg shadow-inner"><i class="fa-brands fa-facebook-f"></i></div>
+            <div class="flex items-center gap-4 p-4 bg-[#F0F9FF] rounded-xl border border-[#B3E5FC]/40">
+                <div class="w-10 h-10 bg-blue-100 text-blue-500 rounded-xl flex items-center justify-center text-lg shadow-inner"><i class="fa-brands fa-facebook-f"></i></div>
                 <div class="overflow-hidden">
                     <span class="text-[9px] font-digital text-slate-400 font-bold block tracking-wider">FACEBOOK</span>
-                    <span class="text-sm font-medium text-slate-200 block truncate">Facebook : __________________</span>
+                    <span class="text-sm font-semibold text-slate-700 block truncate">[ เฟซบุ๊กของคุณกรวิภา ]</span>
                 </div>
             </div>
 
             <!-- Instagram -->
-            <div class="flex items-center gap-4 p-4 bg-slate-950/40 rounded-xl border border-white/5">
-                <div class="w-10 h-10 bg-pink-600/10 text-pink-400 rounded-xl flex items-center justify-center text-lg shadow-inner"><i class="fa-brands fa-instagram"></i></div>
+            <div class="flex items-center gap-4 p-4 bg-[#F0F9FF] rounded-xl border border-[#B3E5FC]/40">
+                <div class="w-10 h-10 bg-pink-100 text-pink-400 rounded-xl flex items-center justify-center text-lg shadow-inner"><i class="fa-brands fa-instagram"></i></div>
                 <div class="overflow-hidden">
                     <span class="text-[9px] font-digital text-slate-400 font-bold block tracking-wider">INSTAGRAM</span>
-                    <span class="text-sm font-medium text-slate-200 block truncate">Instagram : __________________</span>
+                    <span class="text-sm font-semibold text-slate-700 block truncate">[ ไอจีของคุณกรวิภา ]</span>
                 </div>
             </div>
 
             <!-- GitHub -->
-            <div class="flex items-center gap-4 p-4 bg-slate-950/40 rounded-xl border border-white/5">
-                <div class="w-10 h-10 bg-slate-800/20 text-slate-200 rounded-xl flex items-center justify-center text-lg shadow-inner"><i class="fa-brands fa-github"></i></div>
+            <div class="flex items-center gap-4 p-4 bg-[#F0F9FF] rounded-xl border border-[#B3E5FC]/40">
+                <div class="w-10 h-10 bg-slate-100 text-slate-600 rounded-xl flex items-center justify-center text-lg shadow-inner"><i class="fa-brands fa-github"></i></div>
                 <div class="overflow-hidden">
                     <span class="text-[9px] font-digital text-slate-400 font-bold block tracking-wider">GITHUB</span>
-                    <span class="text-sm font-medium text-slate-200 block truncate">GitHub : __________________</span>
+                    <span class="text-sm font-semibold text-slate-700 block truncate">[ กิตฮับของคุณกรวิภา ]</span>
                 </div>
             </div>
 
@@ -300,23 +315,25 @@
 
 
     <!-- ================= LIGHTBOX SYSTEM MODAL ================= -->
-    <div id="lightbox" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden z-[100] flex-col items-center justify-center p-4 transition-all duration-300 opacity-0">
-        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white bg-slate-900 border border-white/10 text-xl w-10 h-10 flex items-center justify-center rounded-xl hover:text-[#38BDF8] transition-all shadow-xl">
+    <!-- STREAMING_CHUNK: Integrating the responsive zoom viewer modal... -->
+    <div id="lightbox" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden z-[100] flex-col items-center justify-center p-4 transition-all duration-300 opacity-0">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-slate-700 bg-white border border-slate-200 text-xl w-10 h-10 flex items-center justify-center rounded-xl hover:text-[#0288D1] transition-all shadow-xl">
             <i class="fa-solid fa-xmark"></i>
         </button>
-        <div class="max-w-3xl max-h-[85vh] overflow-hidden rounded-2xl border border-white/10 bg-slate-900 p-2 shadow-2xl">
+        <div class="max-w-3xl max-h-[85vh] overflow-hidden rounded-2xl border border-white bg-white p-2 shadow-2xl">
             <img id="lightbox-img" class="w-full h-full object-contain max-h-[82vh] rounded-xl" src="" alt="Expanded Blueprint View">
         </div>
     </div>
 
 
     <!-- ================= FOOTER ================= -->
-    <footer class="bg-slate-950/60 text-slate-500 py-8 text-center font-digital text-[10px] tracking-widest border-t border-white/5 relative z-10">
+    <footer class="bg-white/80 text-slate-400 py-8 text-center font-digital text-[10px] tracking-widest border-t border-[#B3E5FC] relative z-10">
         © 2026 PORTFOLIO // OPERATIONS_SYSTEM: COBALT_BLUE. ALL RIGHTS RESERVED.
     </footer>
 
 
     <!-- ================= JAVASCRIPT LOGIC CONTROLLERS ================= -->
+    <!-- STREAMING_CHUNK: Instantiating the loader and lightbox interaction events... -->
     <script>
         // 1. ควบคุมปิดประตูดาวน์โหลดจำลองข้อมูล (System Loader Overlay)
         window.addEventListener('load', function() {
@@ -364,7 +381,15 @@
                 closeLightbox();
             }
         });
+
+        // เปิดรับการปิดหน้าต่างผ่านปุ่มคีย์บอร์ด Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
     </script>
 
 </body>
 </html>
+```eof
